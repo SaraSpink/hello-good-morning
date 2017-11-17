@@ -1,0 +1,14 @@
+<h1>All Products</h1>
+<ul style="list-style-type:none">
+  <% @products.each do |product| %>
+  <li>
+    <%= product.name %>
+    <br>
+    $<%= product.cost %>.00
+    <br>
+    <%= product.id %>
+    <br>
+  </li>
+  <% end %>
+
+</ul>
