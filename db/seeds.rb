@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.destroy_all
+
+12.times do |index|
+  product = Product.create!(name: Faker::TwinPeaks.character,
+  image: Faker::LoremPixel.image("200x200", false, 'animals'),
+  cost: Faker::Number.decimal(2,2)
+  )
+end
+p "Created #{Product.count} products"

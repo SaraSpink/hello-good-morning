@@ -12,6 +12,16 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body {
+  color: #77173c;
+  background: url(nikunj-gupta-224168.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .container {
   margin-top: 40px;
   padding: 25px;
@@ -19,12 +29,6 @@
   border-radius: 20px;
 }
 
-body {
-
-  color: #77173c;
-  background: url(nikunj-gupta-224168.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#product_thumb {
+  border-radius: 100px;
 }
