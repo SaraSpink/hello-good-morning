@@ -9,12 +9,20 @@
   <button class="btn">
   <%= link_to "Delete Product", product_path(@product),
                     :data => {:confirm => "Are you sure?",
-                    :method => "delete"} %></button>
+                    :method => "delete"} %>
+                  </button>
   <br>
   <br>
   <br>
   <button class="btn btn-info">
-    <%= link_to "Return Home", products_path %></button>
+    <%= link_to "Add A Review", new_product_review_path(@product) %>
+  </button>
+  <br>
+  <br>
+  <br>
+  <button class="btn btn-info">
+    <%= link_to "Return Home", products_path %>
+  </button>
 </div>
 
 <div class="col-md-8">
@@ -25,6 +33,7 @@
         <b><%= review.author %></b>
         <br>
         <%= review.content_body %>
+        
       </div>
     </li>
   <% end %>
