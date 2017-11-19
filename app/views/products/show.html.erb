@@ -16,10 +16,17 @@
   <button class="btn btn-info">
     <%= link_to "Return Home", products_path %></button>
 </div>
+
 <div class="col-md-8">
   <h3>Product Reviews:</h3>
-  <h4>Name</h4>
-  <p>lorem</p>
-
+  <% @reviews.each do |review| %>
+    <li style="list-style: none;">
+      <div class="well">
+        <b><%= review.author %></b>
+        <br>
+        <%= review.content_body %>
+      </div>
+    </li>
+  <% end %>
 </div>
 </div>
