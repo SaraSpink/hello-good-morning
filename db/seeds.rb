@@ -15,7 +15,7 @@ Review.destroy_all
   cost: Faker::Number.decimal(2,2)
   )
 
-  50.times do |index|
+  5.times do |index|
     review = Review.create!(author: Faker::TwinPeaks.character,
     content_body: Faker::ChuckNorris.fact, product_id: product.id)
   end
