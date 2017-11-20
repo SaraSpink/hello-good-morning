@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.sort_date
+    @lowcost = Product.sort_cost
   end
 
   def show

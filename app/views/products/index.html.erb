@@ -1,8 +1,42 @@
-<h1>All Products</h1>
+
+<h1><b>Hello, Good Morning!</b></h1>
+<p>A fun shop for kids and grownups, too! </p>
+<p>Come and enjoy our lovingly curated and
+whimsical mix of locally made and imported treasures.
+</p>
+<p><em>2419 NE Broadway St</em></p>
+<p><em>Portland, OR 97232</em></p>
+<a href="http://hellogoodmorningkids.com"><button class="btn">Learn More!</button></a>
+
+
+<h2>Newest Items:</h2>
+<div class="row">
+  <ul style="list-style-type:none">
+    <% @products.each do |product| %>
+      <li>
+        <div class="col-md-4">
+        <img id="product_thumb" src="<%= product.image %>">
+        <br>
+        <br>
+          <div class="well">
+            <b><%= product.name %></b>
+            <br>
+            $<%= product.cost %>.00
+            <br>
+            <%= product.id %>
+            <br>
+            <%= link_to "View Details", product_path(product) %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<h2>Best Bargains:</h2>
+<div class="row">
 <ul style="list-style-type:none">
-  <% @products.each do |product| %>
-
-
+  <% @lowcost.each do |product| %>
     <li>
       <img id="product_thumb" src="<%= product.image %>">
       <br>
@@ -17,7 +51,6 @@
         <%= link_to "View Details", product_path(product) %>
       </div>
     </li>
-
   <% end %>
-
 </ul>
+</div>
