@@ -9,13 +9,13 @@
 Product.destroy_all
 Review.destroy_all
 
-12.times do |index|
+50.times do |index|
   product = Product.create!(name: Faker::Hipster.word,
   image: Faker::LoremPixel.image("200x200", false, 'animals'),
   cost: Faker::Number.decimal(2,2)
   )
 
-  20.times do |index|
+  50.times do |index|
     review = Review.create!(author: Faker::TwinPeaks.character,
     content_body: Faker::ChuckNorris.fact, product_id: product.id)
   end
