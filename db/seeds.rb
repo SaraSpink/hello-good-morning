@@ -12,12 +12,15 @@ Review.destroy_all
 50.times do |index|
   product = Product.create!(name: Faker::Hipster.word,
   image: Faker::LoremPixel.image("200x200", false, 'animals'),
+  country: Faker::Address.country,
   cost: Faker::Number.decimal(2,2)
   )
 
   5.times do |index|
     review = Review.create!(author: Faker::TwinPeaks.character,
-    content_body: Faker::ChuckNorris.fact, product_id: product.id)
+    content_body: Faker::ChuckNorris.fact,
+    product_id: product.id,
+    rating: Faker::Number.between(1,5))
   end
 end
 

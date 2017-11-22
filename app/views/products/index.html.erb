@@ -23,7 +23,7 @@ whimsical mix of locally made and imported treasures.
             <br>
             $<%= product.cost %>.00
             <br>
-            <%= product.id %>
+            <em>sku#: </em><%= product.id %>
             <br>
             <%= link_to "View Details", product_path(product) %>
           </div>
@@ -46,11 +46,39 @@ whimsical mix of locally made and imported treasures.
         <br>
         $<%= product.cost %>.00
         <br>
-        <%= product.id %>
+        <em>sku#: </em><%= product.id %>
         <br>
         <%= link_to "View Details", product_path(product) %>
       </div>
     </li>
   <% end %>
 </ul>
+</div>
+
+<h2>Locally Made Items:</h2>
+<div class="row">
+  <% if @madelocal.any? %>
+    <ul style="list-style-type:none">
+      <% @madelocal.each do |product| %>
+        <li>
+          <img id="product_thumb" src="<%= product.image %>">
+          <br>
+          <br>
+          <div class="well">
+            <b><%= product.name %></b>
+            <br>
+            $<%= product.cost %>.00
+            <br>
+            <em>sku#: </em><%= product.id %>
+            <br>
+            <%= link_to "View Details", product_path(product) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="well">
+      <h3>Nothing locally made is currently in stock, but please enjoy our selection of beautiful items from all over the world!</h3>
+    </div>
+  <% end %>
 </div>
