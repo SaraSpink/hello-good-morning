@@ -33,6 +33,8 @@
         <b><%= review.author %></b>
         <br>
         <%= review.content_body %>
+        <br>
+        <em>Cutstomer Rating:</em> <%= review.rating %>/5
         <p><%= link_to "Edit Review", edit_product_review_path(@product, review) %></p>
         <p><%= link_to "Delete Review", product_review_path(@product, review),
                         :data => {:confirm => "Are you sure?",
