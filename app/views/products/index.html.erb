@@ -34,6 +34,13 @@ whimsical mix of locally made and imported treasures.
     <% end %>
   </ul>
 </div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+
+    <button class="btn"><%= link_to "Add a Product", new_product_path %></button>
+  </div>
+</div>
 
 <br>
 <hr>
@@ -62,21 +69,20 @@ whimsical mix of locally made and imported treasures.
   <div class="col-md-4">
     <h2>Most Reviewed:</h2>
     <ul style="list-style-type:none">
-
+      <% @mostreviews.each do |product| %>
       <li>
-        <img id="product_thumb" src="<%= @mostreviews.image %>">
-        <br>
-        <br>
         <div class="well">
-          <b><%= @mostreviews.name %></b>
+          <b><%= product.name %></b>
           <br>
-          $<%= @mostreviews.cost %>.00
+          $<%= product.cost %>.00
           <br>
-          <em>sku#: </em><%= @mostreviews.id %>
+          <em>sku#: </em><%= product.id %>
           <br>
-          <%= link_to "View Details", product_path(@mostreviews) %>
+          <%= link_to "View Details", product_path(product) %>
         </div>
       </li>
+      <% end %>
+
 
     </ul>
   </div>

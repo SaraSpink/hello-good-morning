@@ -7,13 +7,12 @@ class Product < ActiveRecord::Base
   scope :sort_date, -> {order(created_at: :desc).limit(3)}
   scope :sort_cost, -> {order(cost: :asc).limit(5)}
   scope :sort_local, -> { Product.where(country: "United States") }
-  scope :most_reviews, -> {(
-    select("products.id, products.name, products.image, products.cost, count(reviews.id) as reviews_count")
-    .joins(:reviews)
-    .group("products.id")
-    .order("reviews_count DESC")
-    .limit(1).first
-  )}
+  scope :most_reviews, -> {
+    left_joins(:reviews)
+      .group(:id)
+      .order("Count(reviews.id) DESC")
+      .limit(1)
+  }
 
 
 end
