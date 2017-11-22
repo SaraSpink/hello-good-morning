@@ -8,6 +8,8 @@ whimsical mix of locally made and imported treasures.
 <p><em>Portland, OR 97232</em></p>
 <a href="http://hellogoodmorningkids.com"><button class="btn">Learn More!</button></a>
 
+<hr>
+<hr>
 
 <h2>Newest Items:</h2>
 <div class="row">
@@ -33,52 +35,77 @@ whimsical mix of locally made and imported treasures.
   </ul>
 </div>
 
-<h2>Best Bargains:</h2>
-<div class="row">
-<ul style="list-style-type:none">
-  <% @lowcost.each do |product| %>
-    <li>
-      <img id="product_thumb" src="<%= product.image %>">
-      <br>
-      <br>
-      <div class="well">
-        <b><%= product.name %></b>
-        <br>
-        $<%= product.cost %>.00
-        <br>
-        <em>sku#: </em><%= product.id %>
-        <br>
-        <%= link_to "View Details", product_path(product) %>
-      </div>
-    </li>
-  <% end %>
-</ul>
-</div>
+<br>
+<hr>
+<hr>
 
-<h2>Locally Made Items:</h2>
 <div class="row">
-  <% if @madelocal.any? %>
+  <div class="col-md-4">
+    <h2>Best Bargains:</h2>
     <ul style="list-style-type:none">
-      <% @madelocal.each do |product| %>
-        <li>
-          <img id="product_thumb" src="<%= product.image %>">
+      <% @lowcost.each do |product| %>
+      <li>
+        <div class="well">
+          <b><%= product.name %></b>
           <br>
+          $<%= product.cost %>.00
           <br>
-          <div class="well">
-            <b><%= product.name %></b>
-            <br>
-            $<%= product.cost %>.00
-            <br>
-            <em>sku#: </em><%= product.id %>
-            <br>
-            <%= link_to "View Details", product_path(product) %>
-          </div>
-        </li>
+          <em>sku#: </em><%= product.id %>
+          <br>
+          <%= link_to "View Details", product_path(product) %>
+        </div>
+      </li>
       <% end %>
     </ul>
-  <% else %>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Most Reviewed:</h2>
+    <ul style="list-style-type:none">
+
+      <li>
+        <img id="product_thumb" src="<%= @mostreviews.image %>">
+        <br>
+        <br>
+        <div class="well">
+          <b><%= @mostreviews.name %></b>
+          <br>
+          $<%= @mostreviews.cost %>.00
+          <br>
+          <em>sku#: </em><%= @mostreviews.id %>
+          <br>
+          <%= link_to "View Details", product_path(@mostreviews) %>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Locally Made Items:</h2>
+    <% if @madelocal.any? %>
+    <ul style="list-style-type:none">
+      <% @madelocal.each do |product| %>
+      <li>
+        <img id="product_thumb" src="<%= product.image %>">
+        <br>
+        <br>
+        <div class="well">
+          <b><%= product.name %></b>
+          <br>
+          $<%= product.cost %>.00
+          <br>
+          <em>sku#: </em><%= product.id %>
+          <br>
+          <%= link_to "View Details", product_path(product) %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <% else %>
     <div class="well">
-      <h3>Nothing locally made is currently in stock, but please enjoy our selection of beautiful items from all over the world!</h3>
+      <p>Nothing locally-made is currently in stock, but please enjoy our selection of beautiful items from all over the world!</p>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

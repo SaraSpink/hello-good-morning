@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @products = Product.sort_date
     @lowcost = Product.sort_cost
     @madelocal = Product.sort_local
+    @mostreviews = Product.most_reviews
   end
 
   def show
