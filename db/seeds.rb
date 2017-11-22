@@ -18,7 +18,7 @@ Review.destroy_all
 
   5.times do |index|
     review = Review.create!(author: Faker::TwinPeaks.character,
-    content_body: Faker::ChuckNorris.fact,
+    content_body: Faker::Lorem.sentence(15, false, 0),
     product_id: product.id,
     rating: Faker::Number.between(1,5))
   end
